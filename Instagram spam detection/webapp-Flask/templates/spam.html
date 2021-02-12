@@ -1,0 +1,89 @@
+{%extends "navbar.html"%}
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Species Detection</title>
+    <link rel="stylesheet" href="..\static\css\style.css">
+    <link rel="stylesheet" href="..\static\css\w3.css">
+    <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    p,li{font-family: "Raleway", normal}
+    h1 {
+      color: white;
+      text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    }
+     span {
+      color: white;
+      text-shadow: 1px 1px 2px black, 0 0 25px orange, 0 0 5px darkblue;
+    }
+    
+    </style>
+    
+</head>
+<body style="background-image:url(../static/images/inst3.jpg);background-repeat: no-repeat;background-size: cover;opacity:0.9">
+    <div class="container">
+        <h1><b>Instagram Spam Check</b> <span>{{predict}}</span></h1>
+        <form action="{{url_for('predict')}}" method="POST">
+            
+            <select class="input1" name="profilepic" required>
+                <option value="" disabled selected hidden>Presence of profile picture</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>    
+            </select><br><br>
+            
+            <input type="number" min="0" step=0.01 class="input1" name="username" placeholder="Number/length in username" required></input>
+            <br><br>
+            
+            <input type="number" min="0" class="input1" name="wordsoffullname" placeholder="Words in full name" required></input>
+            <br><br>
+            
+            <input type="number" min="0"  step=0.01 class="input1" name="fullname" placeholder="Number/length in fullname" required></input>
+            <br><br>
+             
+            <select class="input1" name="name==username" required>
+                <option value="" disabled selected hidden>Wheather name same as username or not?</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>    
+            </select><br><br>
+            
+            <input type="number" min="0" class="input1" name="description" placeholder="Description length" required></input>
+            <br><br>
+            
+            <select class="input1" name="ext-url" required>
+                <option value="" disabled selected hidden>Presence of external url</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>    
+            </select><br><br>
+            
+            
+            <select class="input1" name="privacy" required>
+                <option value="" disabled selected hidden>Account's privacy</option>
+                <option value="1">Private</option>
+                <option value="0">Public</option>    
+            </select><br><br>
+            
+            
+            <input type="number" min="0" class="input1" name="post" placeholder="Number of post" required></input>
+            <br><br>
+            
+            <input type="number" min="0" class="input1" name="followers" placeholder="Number of followers" required></input>
+            <br><br>
+            
+            <input type="number" min="0" class="input1" name="follows" placeholder="Number of follows" required></input>
+            <br><br>
+            
+            <button class="btn w3-orange" type="submit">submit</button>
+    
+        </form>
+        
+    </div>
+   <footer class="w3-container w3-orange w3-padding-16 " style="width:100%">
+       <a class="w3-button w3-black w3-padding-large w3-margin-bottom" href="contact">contact</a>
+       <a class="w3-button w3-black w3-padding-large w3-margin-bottom" href="report">Reports</a>
+   </footer>   
+</body>
+</html>
+{%endblock%}
